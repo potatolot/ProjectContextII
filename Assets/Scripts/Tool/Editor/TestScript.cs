@@ -17,15 +17,15 @@ public class ExampleWindow : EditorWindow
 	};
 
 
-    [MenuItem("Test/Example")]
+    [MenuItem("Window/Audio Tool")]
     static void ShowWindow()
 	{
-        GetWindow<ExampleWindow>("TEST");
+        GetWindow<ExampleWindow>("Audio Tool");
 	}
 
 	private void OnGUI()
 	{
-        GUILayout.Label("This lable", EditorStyles.boldLabel);
+        GUILayout.Label("Variables", EditorStyles.boldLabel);
 
         ScriptableObject target = this;
         SerializedObject so = new SerializedObject(target);
@@ -42,8 +42,18 @@ public class ExampleWindow : EditorWindow
         so2.ApplyModifiedProperties(); // Remember to apply modified properties
 
 
-        color = EditorGUILayout.ColorField("colorpici", color);
-	}
+
+        GUILayout.FlexibleSpace();
+        //GUILayout.Label("Apply", EditorStyles.boldLabel);
+        if (GUILayout.Button("Apply"))
+        {
+            
+        }
+
+
+
+        //color = EditorGUILayout.ColorField("colorpici", color);
+    }
 
 	// Start is called before the first frame update
 	void Start()
