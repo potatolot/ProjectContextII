@@ -5,10 +5,13 @@ using UnityEditor;
 
 public class ExampleWindow : EditorWindow
 {
+    public GameObject audioManagerGO;
+    public AudioManager audioManagerScript;
     public GameObject[] gameObjects;
     public AudioClip[] audioClips;
     public Dictionary<GameObject,AudioClip> connectedObjects;
     public Color color;
+    public Vector2 amount;
 
     public struct CGO
 	{
@@ -25,6 +28,14 @@ public class ExampleWindow : EditorWindow
 
 	private void OnGUI()
 	{
+        audioManagerGO = GameObject.FindGameObjectWithTag("AudioManager");
+		if (!audioManagerGO)
+		{
+            audioManagerGO = new GameObject("AudioManager");
+            audioManagerGO.tag = "AudioManager";
+            audioManagerScript = audioManagerGO.AddComponent<AudioManager>();
+		}
+
         GUILayout.Label("Variables", EditorStyles.boldLabel);
 
         ScriptableObject target = this;
@@ -41,7 +52,26 @@ public class ExampleWindow : EditorWindow
         EditorGUILayout.PropertyField(stringsProperty2, true); // True means show children
         so2.ApplyModifiedProperties(); // Remember to apply modified properties
 
-
+        amount = new Vector2(gameObjects.Length, audioClips.Length);
+        if (gameObjects.Length != audioClips.Length)
+		{
+            if (gameObjects.Length > audioClips.Length)
+            {
+                if (audioClips.Length != amount.y)
+                {
+                    gameObjects = new GameObject[audioClips.Length];
+                }
+                audioClips = new AudioClip[gameObjects.Length];
+            }
+            else
+            {
+                if (gameObjects.Length != amount.x)
+				{
+                    audioClips = new AudioClip[gameObjects.Length];
+                }
+                gameObjects = new GameObject[audioClips.Length];
+            }
+        }
 
         GUILayout.FlexibleSpace();
         //GUILayout.Label("Apply", EditorStyles.boldLabel);
