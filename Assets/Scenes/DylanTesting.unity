@@ -726,22 +726,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c85fcdf6d8552734d8c70cd0d3b03851, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 1868395494}
-  audioManager: {fileID: 0}
-  audioContents:
-  - startType: 1
+  _player: {fileID: 1868395494}
+  _audioContents:
+  - startType: 0
     gameObject: {fileID: 1919979907}
     audioClip: {fileID: 8300000, guid: 9171503d8609a40469124d12161b7071, type: 3}
-    volume: 20.3
-  - startType: 1
+    volume: 100
+  - startType: 0
     gameObject: {fileID: 1684270933}
     audioClip: {fileID: 8300000, guid: 9171503d8609a40469124d12161b7071, type: 3}
-    volume: 42.3
-  - startType: 1
+    volume: 100
+  - startType: 0
     gameObject: {fileID: 46629769}
     audioClip: {fileID: 8300000, guid: 9171503d8609a40469124d12161b7071, type: 3}
-    volume: 75.8
-  - startType: 1
+    volume: 100
+  - startType: 0
     gameObject: {fileID: 2135833089}
     audioClip: {fileID: 8300000, guid: 9171503d8609a40469124d12161b7071, type: 3}
     volume: 100
@@ -870,7 +869,7 @@ GameObject:
   - component: {fileID: 1868395502}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

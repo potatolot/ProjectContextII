@@ -4,39 +4,67 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    public GameObject Player;
-    public GameObject audioManager;
-    public AudioContents[] audioContents;
-	private Dictionary<GameObject, Components> _audioDictionary = new Dictionary<GameObject, Components>();
+    [SerializeField] private GameObject _player;
+    [SerializeField] private AudioContents[] _audioContents;
+	private Dictionary<GameObject, AudioComponents> _audioDictionary = new Dictionary<GameObject, AudioComponents>();
 
-	private struct Components
+	//Stores all the required components for the audio
+	private struct AudioComponents
 	{
-		public Components(AudioContents.StartType st, AudioClip ac, float v)
+		public AudioContents.StartType startType;
+		public AudioClip audioClip;
+		public float volume;
+
+		//Fill all variables for the audio 
+		public AudioComponents(AudioContents.StartType st, AudioClip ac, float v)
 		{
 			startType = st;
 			audioClip = ac;
 			volume = v;
 		}
-
-		public AudioContents.StartType startType;
-		public AudioClip audioClip;
-		public float volume;
 	}
 
+	//Toggle debug features depending on if the game is running in Unity or as a build
+	private void Awake()
+	{
+		#if UNITY_EDITOR
+			Debug.unityLogger.logEnabled = true;
+		#else
+			Debug.unityLogger.logEnabled = false;
+		#endif
+	}
+
+	//Gather and configure all data needed for the audiomanager to work
 	private void Start()
 	{
-		foreach(AudioContents ac in audioContents)
+		//Get player Game Object if the _player variable is empty
+		if (!_player) _player = GameObject.FindGameObjectWithTag("Player");
+		else if (!_player) _player = GameObject.Find("Player");
+ 		else Debug.LogError("No player recognized in the " + this.name + " script on the " + gameObject.name + " Game Object!");
+
+		//Add PlayerAudioComponent script to _player Game Object for audio at runtime
+		if(_player.GetComponent<PlayerAudioComponent>()) _player.AddComponent<PlayerAudioComponent>();
+
+		//Add all audio contents in a directory, the key will be the gameobject and the value will be all audio components needed
+		if(_audioContents.Length > 0)
 		{
-			ac.gameObject.tag = "ContainsAudio";
-			_audioDictionary.Add(ac.gameObject, new Components(ac.startType, ac.audioClip, ac.volume));
+			foreach(AudioContents ac in _audioContents)
+			{
+				if (!ac.gameObject.GetComponent<AudioSource>()) ac.gameObject.AddComponent<AudioSource>();
+				_audioDictionary.Add(ac.gameObject, new AudioComponents(ac.startType, ac.audioClip, ac.volume));
+			}
 		}
+		else Debug.LogError("There are no Audio Components on the " + this.name + " component on the " + gameObject.name + " Game Object!");
 	}
 
-	public void TryAudio(GameObject go, AudioContents.StartType startType)
+	//Play the audio connected to the Game Object
+	public void PlayAudio(GameObject go, AudioContents.StartType startType)
 	{
 		if (_audioDictionary.ContainsKey(go))
 		{
-			Components component = _audioDictionary[go];
+			AudioComponents component = _audioDictionary[go];
+
+			//Check if the start type for the audio is correct
 			if (component.startType == startType)
 			{
 				AudioSource audioSource = go.GetComponent<AudioSource>();

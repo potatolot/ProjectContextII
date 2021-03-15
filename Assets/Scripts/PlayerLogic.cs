@@ -8,20 +8,16 @@ public class PlayerLogic : MonoBehaviour
 	private Vector2 _posChange;
 	private Vector2 _rotation;
 	private float _speed;
-	private float _range;
 	private Vector2 _velocity;
 	private CharacterController _characterController;
 	private GameObject _camera;
-	private AudioManager _audioManager;
 
 	private void Start()
 	{
-		_audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
 		_characterController = GetComponent<CharacterController>();
 		_camera = GameObject.FindGameObjectWithTag("MainCamera");
 
 		_speed = 10f;
-		_range = 10f;
 	}
 
 	public void Update()
@@ -57,28 +53,5 @@ public class PlayerLogic : MonoBehaviour
 	public void ROTATE(InputAction.CallbackContext context)
 	{
 		_rotation = context.ReadValue<Vector2>();
-	}
-
-	public void Interact()
-	{
-		RaycastHit hit;
-		if (Physics.Raycast(transform.position, transform.forward, out hit, _range))
-		{
-			if (hit.transform.gameObject.tag == "ContainAudio")
-			{
-				_audioManager.TryAudio(hit.transform.gameObject, AudioContents.StartType.OnClick);
-			}
-		}
-	}
-
-	private void OnCollisionEnter(Collision collision)
-	{
-		if (collision.gameObject != gameObject)
-		{
-			if (collision.gameObject.transform.gameObject.tag == "ContainAudio")
-			{
-				_audioManager.TryAudio(collision.gameObject, AudioContents.StartType.OnCollision);
-			}
-		}
 	}
 }
