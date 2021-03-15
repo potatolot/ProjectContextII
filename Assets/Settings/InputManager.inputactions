@@ -7,16 +7,24 @@
             "actions": [
                 {
                     "name": "Walk",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "de43eb62-5448-446e-96c1-a27c84daa30a",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": ""
                 },
                 {
                     "name": "Rotate",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "a9703511-19c1-4ce5-b90d-d3ec7c6db430",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Interact",
+                    "type": "Button",
+                    "id": "2fe74873-c6bd-47fb-93de-167b6669760c",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -79,37 +87,59 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "Mouse",
-                    "id": "073cd30f-1ad8-4e84-b29e-5a28ba1ce157",
-                    "path": "1DAxis",
+                    "name": "",
+                    "id": "6084cfbf-e47e-4938-97d0-4ab95bf6c04b",
+                    "path": "<Gamepad>/leftStick",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Rotate",
-                    "isComposite": true,
+                    "action": "Walk",
+                    "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "negative",
-                    "id": "f8a744bf-98ba-48f1-896f-b4a78cc8c124",
-                    "path": "<Keyboard>/leftArrow",
+                    "name": "",
+                    "id": "05c2275d-b262-44b4-96c2-9b19fc9a29c4",
+                    "path": "<Gamepad>/rightStick",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Rotate",
                     "isComposite": false,
-                    "isPartOfComposite": true
+                    "isPartOfComposite": false
                 },
                 {
-                    "name": "positive",
-                    "id": "5f068ddc-0517-44bd-a34f-86398d6cfc17",
-                    "path": "<Keyboard>/rightArrow",
+                    "name": "",
+                    "id": "50f1e75e-494f-4e58-af74-035f0db01b9c",
+                    "path": "<Mouse>/delta",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Rotate",
                     "isComposite": false,
-                    "isPartOfComposite": true
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "460bf8ea-64ed-4910-8f2d-68c234041cec",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c61af661-ef2f-459b-af45-2d3424a2b667",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

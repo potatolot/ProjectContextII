@@ -9,7 +9,7 @@ public struct AudioContents
 	public enum StartType
 	{
 		OnCollision,
-		Raycast
+		OnClick
 	}
 
 	public StartType startType;
