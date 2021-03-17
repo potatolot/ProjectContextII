@@ -24,11 +24,11 @@ public class PlayerLogic : MonoBehaviour
 	{
 		Vector3 testVector = transform.forward * _posChange.y + _posChange.x * transform.right;
 		_velocity = new Vector2(_speed * Vector3.Normalize(testVector).x * Time.deltaTime,
-			_speed * Vector3.Normalize(testVector).z * Time.deltaTime);
+								_speed * Vector3.Normalize(testVector).z * Time.deltaTime);
 		
 		_characterController.Move(new Vector3(_velocity.x, 0, _velocity.y));
 
-		//FIXME //HACK Rotation not clamped. Could not edit rotation for some reason
+		//HACK Rotation not clamped. Could not edit rotation for some reason
 		_camera.transform.Rotate(-new Vector3(_rotation.y,
 															0,
 															0));

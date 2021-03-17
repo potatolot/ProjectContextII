@@ -41,7 +41,8 @@ public class AudioManager : MonoBehaviour
 		//Get player Game Object if the _player variable is empty
 		if (!_player) _player = GameObject.FindGameObjectWithTag("Player");
 		else if (!_player) _player = GameObject.Find("Player");
- 		else if (!_player) Debug.LogError("No player recognized in the " + this.name + " script on the " + gameObject.name + " Game Object!");
+ 		else if (!_player) Debug.LogError("No player recognized in the " + this.name + 
+											" script on the " + gameObject.name + " Game Object!");
 
 		//Add PlayerAudioComponent script to _player Game Object for audio at runtime
 		if(!_player.GetComponent<PlayerAudioComponent>()) _player.AddComponent<PlayerAudioComponent>().Range = 10f;
@@ -55,7 +56,8 @@ public class AudioManager : MonoBehaviour
 				_audioDictionary.Add(ac.gameObject, new AudioComponents(ac.startType, ac.audioClip, ac.volume));
 			}
 		}
-		else Debug.LogError("There are no Audio Components on the " + this.name + " component on the " + gameObject.name + " Game Object!");
+		else Debug.LogError("There are no Audio Components on the " + this.name + 
+							" component on the " + gameObject.name + " Game Object!");
 	}
 
 	//Play the audio connected to the Game Object
@@ -68,6 +70,7 @@ public class AudioManager : MonoBehaviour
 			//Check if the start type for the audio is correct
 			if (component.startType == startType)
 			{
+				//Get audio source and play the audio clip
 				AudioSource audioSource = go.GetComponent<AudioSource>();
 				audioSource.Stop();
 				audioSource.clip = component.audioClip;

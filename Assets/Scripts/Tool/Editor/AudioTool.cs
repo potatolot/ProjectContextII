@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEditor;
 
 
-//TODO: THIS IS A WIP FILE AND IS NOT FINISHED!
+//TODO: THIS IS A WIP FILE AND IS NOT FINISHED OR IN APLHA PHASE!
 public class AudioTool : EditorWindow
 {
     private GameObject audioManagerGO;
@@ -27,6 +27,6 @@ public class AudioTool : EditorWindow
         if (!audioManagerGO.GetComponent<AudioManager>()) audioManagerScript = audioManagerGO.AddComponent<AudioManager>();
         else audioManagerScript = audioManagerGO.GetComponent<AudioManager>();
 
-
+        GUILayout.Label("Variables", EditorStyles.boldLabel);
     }
 }

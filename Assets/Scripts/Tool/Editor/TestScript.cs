@@ -3,6 +3,8 @@
 //using UnityEngine;
 //using UnityEditor;
 
+//REFERENCE SCRIPT, NOT USED
+
 //public class ExampleWindow : EditorWindow
 //{
 //    public GameObject audioManagerGO;
