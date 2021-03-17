@@ -5,20 +5,19 @@ using UnityEngine;
 public class PlayerAudioComponent : MonoBehaviour
 {
 	private AudioManager _audioManager;
-	private float _range;
-
+	public float Range;
 
 	private void Start()
 	{
 		_audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
-		_range = 10f;
+		Range = 10f;
 	}
 
 	//TODO: Add functionality to automatically enable inputs (in the new input system for now)
 	public void Interact()
 	{
 		RaycastHit hit;
-		if (Physics.Raycast(transform.position, transform.forward, out hit, _range))
+		if (Physics.Raycast(transform.position, transform.forward, out hit, Range))
 		{
 			if (!hit.transform.gameObject.GetComponent<AudioSource>())
 			{
@@ -27,13 +26,24 @@ public class PlayerAudioComponent : MonoBehaviour
 		}
 	}
 
-	private void OnCollisionEnter(Collision collision)
+	private void OnCollisionEnter(Collision col)
 	{
-		if (collision.gameObject != gameObject)
+		if (col.gameObject != gameObject)
 		{
-			if (collision.gameObject.GetComponent<AudioSource>())
+			if (col.gameObject.GetComponent<AudioSource>())
 			{
-				_audioManager.PlayAudio(collision.gameObject, AudioContents.StartType.OnCollision);
+				_audioManager.PlayAudio(col.gameObject, AudioContents.StartType.OnCollision);
+			}
+		}
+	}
+
+	private void OnTriggerEnter(Collider col)
+	{
+		if (col.gameObject != gameObject)
+		{
+			if (col.gameObject.GetComponent<AudioSource>())
+			{
+				_audioManager.PlayAudio(col.gameObject, AudioContents.StartType.OnTriggerVolume);
 			}
 		}
 	}

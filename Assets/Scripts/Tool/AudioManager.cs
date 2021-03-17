@@ -5,7 +5,8 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     [SerializeField] private GameObject _player;
-    [SerializeField] private AudioContents[] _audioContents;
+	[SerializeField] private AudioContents[] _audioContents;
+
 	private Dictionary<GameObject, AudioComponents> _audioDictionary = new Dictionary<GameObject, AudioComponents>();
 
 	//Stores all the required components for the audio
@@ -40,10 +41,10 @@ public class AudioManager : MonoBehaviour
 		//Get player Game Object if the _player variable is empty
 		if (!_player) _player = GameObject.FindGameObjectWithTag("Player");
 		else if (!_player) _player = GameObject.Find("Player");
- 		else Debug.LogError("No player recognized in the " + this.name + " script on the " + gameObject.name + " Game Object!");
+ 		else if (!_player) Debug.LogError("No player recognized in the " + this.name + " script on the " + gameObject.name + " Game Object!");
 
 		//Add PlayerAudioComponent script to _player Game Object for audio at runtime
-		if(_player.GetComponent<PlayerAudioComponent>()) _player.AddComponent<PlayerAudioComponent>();
+		if(!_player.GetComponent<PlayerAudioComponent>()) _player.AddComponent<PlayerAudioComponent>().Range = 10f;
 
 		//Add all audio contents in a directory, the key will be the gameobject and the value will be all audio components needed
 		if(_audioContents.Length > 0)
