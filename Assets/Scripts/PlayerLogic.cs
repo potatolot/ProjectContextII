@@ -45,6 +45,8 @@ public class PlayerLogic : MonoBehaviour
 
 	}
 
+
+
 	public void WALK(InputAction.CallbackContext context)
 	{
 		_posChange = context.ReadValue<Vector2>();

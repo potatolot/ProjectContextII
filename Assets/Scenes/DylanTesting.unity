@@ -151,7 +151,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 46629769}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -972,19 +972,19 @@ MonoBehaviour:
   - startType: 0
     gameObject: {fileID: 1919979907}
     audioClip: {fileID: 8300000, guid: 9171503d8609a40469124d12161b7071, type: 3}
-    volume: 100
+    volume: 50.8
   - startType: 0
     gameObject: {fileID: 1684270933}
     audioClip: {fileID: 8300000, guid: 9171503d8609a40469124d12161b7071, type: 3}
-    volume: 100
+    volume: 50.1
   - startType: 0
     gameObject: {fileID: 46629769}
     audioClip: {fileID: 8300000, guid: 9171503d8609a40469124d12161b7071, type: 3}
-    volume: 100
+    volume: 51.5
   - startType: 0
     gameObject: {fileID: 2135833089}
     audioClip: {fileID: 8300000, guid: 9171503d8609a40469124d12161b7071, type: 3}
-    volume: 100
+    volume: 50.4
 --- !u!4 &1768470331
 Transform:
   m_ObjectHideFlags: 0
