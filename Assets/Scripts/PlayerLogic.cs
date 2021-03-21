@@ -24,8 +24,8 @@ public class PlayerLogic : MonoBehaviour
 	public void Update()
 	{
 		Vector3 testVector = transform.forward * _posChange.y + _posChange.x * transform.right;
-		if (CanMove) _velocity = new Vector2(_speed * Vector3.Normalize(testVector).x * Time.deltaTime,
-												_speed * Vector3.Normalize(testVector).z * Time.deltaTime);
+		if (CanMove) _velocity = new Vector2(_speed * Vector3.Normalize(testVector).x,
+												_speed * Vector3.Normalize(testVector).z);
 
 		if (CanMove) _characterController.SimpleMove(new Vector3(_velocity.x, 0, _velocity.y));
 
