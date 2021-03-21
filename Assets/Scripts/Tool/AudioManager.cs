@@ -6,6 +6,7 @@ public class AudioManager : MonoBehaviour
 {
     [SerializeField] private GameObject _player;
 	[SerializeField] private AudioContents[] _audioContents;
+	private Negociation _negotiationscript;
 
 	private Dictionary<GameObject, AudioComponents> _audioDictionary = new Dictionary<GameObject, AudioComponents>();
 
@@ -58,6 +59,8 @@ public class AudioManager : MonoBehaviour
 		}
 		else Debug.LogError("There are no Audio Components on the " + this.name + 
 							" component on the " + gameObject.name + " Game Object!");
+
+		_negotiationscript = _player.GetComponent<Negociation>();
 	}
 
 	//Play the audio connected to the Game Object
@@ -76,6 +79,8 @@ public class AudioManager : MonoBehaviour
 				audioSource.clip = component.audioClip;
 				audioSource.volume = component.volume / 100;
 				audioSource.Play();
+
+				StartCoroutine(_negotiationscript.StartNegociation(go, audioSource));
 			}
 		}
 	}
