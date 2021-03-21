@@ -7,18 +7,16 @@ public class PlayerLogic : MonoBehaviour
 {
 	private Vector2 _posChange;
 	private Vector2 _rotation;
-	private float _speed;
+	[SerializeField] private float _speed = 100f;
 	private Vector2 _velocity;
-	private Rigidbody _characterController;
+	private CharacterController _characterController;
 	private GameObject _camera;
 	static public bool CanMove;
 
 	private void Start()
 	{
-		_characterController = GetComponent<Rigidbody>();
+		_characterController = GetComponent<CharacterController>();
 		_camera = GameObject.FindGameObjectWithTag("MainCamera");
-
-		_speed = 1000f;
 
 		CanMove = true;
 	}
@@ -29,7 +27,7 @@ public class PlayerLogic : MonoBehaviour
 		if (CanMove) _velocity = new Vector2(_speed * Vector3.Normalize(testVector).x * Time.deltaTime,
 												_speed * Vector3.Normalize(testVector).z * Time.deltaTime);
 
-		if (CanMove) _characterController.velocity = new Vector3(_velocity.x, 0, _velocity.y);
+		if (CanMove) _characterController.SimpleMove(new Vector3(_velocity.x, 0, _velocity.y));
 
 		//HACK Rotation not clamped. Could not edit rotation for some reason
 		if (CanMove) _camera.transform.Rotate(-new Vector3(_rotation.y,

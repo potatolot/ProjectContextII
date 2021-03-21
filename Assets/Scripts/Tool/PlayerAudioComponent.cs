@@ -28,19 +28,19 @@ public class PlayerAudioComponent : MonoBehaviour
 	}
 
 	//Trigger when colliding with a collider
-	private void OnCollisionEnter(Collision col)
-	{
-		//Check if player isnt colliding with itself
-		if (col.gameObject != gameObject)
-		{
-			//Check if target has an audiosource
-			if (col.gameObject.GetComponent<AudioSource>())
-			{
-				_audioManager.PlayAudio(col.gameObject, AudioContents.StartType.OnCollision);
-			}
-			else Debug.LogWarning(col.gameObject.name + " has no Audio Source!");
-		}
-	}
+	//private void OnCollisionEnter(Collision col)
+	//{
+	//	//Check if player isnt colliding with itself
+	//	if (col.gameObject != gameObject)
+	//	{
+	//		//Check if target has an audiosource
+	//		if (col.gameObject.GetComponent<AudioSource>())
+	//		{
+	//			_audioManager.PlayAudio(col.gameObject, AudioContents.StartType.OnCollision);
+	//		}
+	//		else Debug.LogWarning(col.gameObject.name + " has no Audio Source!");
+	//	}
+	//}
 
 	//Trigger when colliding with a trigger
 	private void OnTriggerEnter(Collider col)
@@ -54,6 +54,20 @@ public class PlayerAudioComponent : MonoBehaviour
 				_audioManager.PlayAudio(col.gameObject, AudioContents.StartType.OnTriggerVolume);
 			}
 			else Debug.LogWarning(col.gameObject + " has no Audio Source!");
+		}
+	}
+
+	private void OnControllerColliderHit(ControllerColliderHit col)
+	{
+		//Check if player isnt colliding with itself
+		if (col.gameObject != gameObject)
+		{
+			//Check if target has an audiosource
+			if (col.gameObject.GetComponent<AudioSource>())
+			{
+				_audioManager.PlayAudio(col.gameObject, AudioContents.StartType.OnCollision);
+			}
+			else Debug.LogWarning(col.gameObject.name + " has no Audio Source!");
 		}
 	}
 }
