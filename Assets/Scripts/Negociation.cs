@@ -83,6 +83,8 @@ public class Negociation : MonoBehaviour
 			_question.text = _currentStory.question;
 
 			_canVote = true;
+			Cursor.lockState = CursorLockMode.Confined;
+			Cursor.visible = true;
 		}
 	}
 
@@ -98,6 +100,8 @@ public class Negociation : MonoBehaviour
 		_canVote = false;
 		PlayerLogic.CanMove = true;
 
+		Cursor.lockState = CursorLockMode.Locked;
+		Cursor.visible = false;
 		Debug.Log(Score);
 	}
 }

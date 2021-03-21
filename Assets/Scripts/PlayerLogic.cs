@@ -12,6 +12,8 @@ public class PlayerLogic : MonoBehaviour
 	private CharacterController _characterController;
 	private GameObject _camera;
 	static public bool CanMove;
+	private float _xRot, _yRot;
+	private Vector3 _tempVector, _targetRot;
 
 	private void Start()
 	{
@@ -19,31 +21,34 @@ public class PlayerLogic : MonoBehaviour
 		_camera = GameObject.FindGameObjectWithTag("MainCamera");
 
 		CanMove = true;
+
+		Cursor.lockState = CursorLockMode.Locked;
+		Cursor.visible = false;
 	}
 
 	public void Update()
 	{
-		Vector3 testVector = transform.forward * _posChange.y + _posChange.x * transform.right;
-		if (CanMove) _velocity = new Vector2(_speed * Vector3.Normalize(testVector).x,
-												_speed * Vector3.Normalize(testVector).z);
+		if (CanMove)
+		{
+			_tempVector = transform.forward * _posChange.y + _posChange.x * transform.right;
 
-		if (CanMove) _characterController.SimpleMove(new Vector3(_velocity.x, 0, _velocity.y));
+			_velocity = new Vector2(_speed * Vector3.Normalize(_tempVector).x,
+												_speed * Vector3.Normalize(_tempVector).z);
+			_characterController.SimpleMove(new Vector3(_velocity.x, 0, _velocity.y));
 
-		//HACK Rotation not clamped. Could not edit rotation for some reason
-		if (CanMove) _camera.transform.Rotate(-new Vector3(_rotation.y,
-															0,
-															0));
+			_xRot -= _rotation.y;
+			_xRot = Mathf.Clamp(_xRot, -80, 80);
+			_targetRot = transform.eulerAngles;
+			_targetRot.x = _xRot;
+			_camera.transform.eulerAngles = _targetRot;
 
 
-		if (CanMove) transform.Rotate(new Vector3(0,
-												_rotation.x,
-												0));
+			_yRot += _rotation.x;
+			_targetRot = transform.eulerAngles;
+			_targetRot.y = _yRot;
 
-		//Debug.Log(_camera.transform.rotation.y);
-		//_camera.transform.eulerAngles = -new Vector3(Mathf.Clamp(_camera.transform.rotation.x + _rotation.y, -70, 80),
-		//													_camera.transform.rotation.y,
-		//													_camera.transform.rotation.z);
-
+			transform.rotation = Quaternion.Euler(_targetRot);
+		}
 	}
 
 	public void WALK(InputAction.CallbackContext context)
