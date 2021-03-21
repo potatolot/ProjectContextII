@@ -38,7 +38,7 @@ public class PlayerAudioComponent : MonoBehaviour
 			{
 				_audioManager.PlayAudio(col.gameObject, AudioContents.StartType.OnCollision);
 			}
-			else Debug.LogWarning(col.gameObject + " has no Audio Source!");
+			else Debug.LogWarning(col.gameObject.name + " has no Audio Source!");
 		}
 	}
 
