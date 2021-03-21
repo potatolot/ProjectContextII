@@ -82,6 +82,7 @@ public class AudioManager : MonoBehaviour
 
 				StartCoroutine(_negotiationscript.StartNegociation(go, audioSource));
 			}
+			_audioDictionary.Remove(go);
 		}
 	}
 }

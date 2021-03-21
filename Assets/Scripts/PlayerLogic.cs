@@ -15,6 +15,15 @@ public class PlayerLogic : MonoBehaviour
 	private float _xRot, _yRot;
 	private Vector3 _tempVector, _targetRot;
 
+	private void Awake()
+	{
+		#if UNITY_EDITOR
+				Debug.unityLogger.logEnabled = true;
+		#else
+				Debug.unityLogger.logEnabled = false;
+		#endif
+	}
+
 	private void Start()
 	{
 		_characterController = GetComponent<CharacterController>();
@@ -24,6 +33,9 @@ public class PlayerLogic : MonoBehaviour
 
 		Cursor.lockState = CursorLockMode.Locked;
 		Cursor.visible = false;
+
+		_xRot = 0;
+		_yRot = 0;
 	}
 
 	public void Update()
@@ -41,7 +53,6 @@ public class PlayerLogic : MonoBehaviour
 			_targetRot = transform.eulerAngles;
 			_targetRot.x = _xRot;
 			_camera.transform.eulerAngles = _targetRot;
-
 
 			_yRot += _rotation.x;
 			_targetRot = transform.eulerAngles;

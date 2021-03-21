@@ -85,6 +85,8 @@ public class Negociation : MonoBehaviour
 			_canVote = true;
 			Cursor.lockState = CursorLockMode.Confined;
 			Cursor.visible = true;
+
+			_storyDictionary.Remove(go);
 		}
 	}
 
