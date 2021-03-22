@@ -7064,6 +7064,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b55f36b5a14622c4b87f97c084a83c97, type: 3}
+--- !u!1 &461936916 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: b55f36b5a14622c4b87f97c084a83c97, type: 3}
+  m_PrefabInstance: {fileID: 461936915}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &473846298 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 429508, guid: 9c74caa742791864f9c678287121e6c9, type: 3}
@@ -8664,6 +8669,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b55f36b5a14622c4b87f97c084a83c97, type: 3}
+--- !u!1 &562300253 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: b55f36b5a14622c4b87f97c084a83c97, type: 3}
+  m_PrefabInstance: {fileID: 562300252}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &562624662 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 429508, guid: 9c74caa742791864f9c678287121e6c9, type: 3}
@@ -11122,6 +11132,7 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 713656261}
   m_maskType: 0
+  _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
 --- !u!23 &713656261
@@ -11515,7 +11526,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &742351350
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14468,21 +14479,49 @@ PrefabInstance:
       propertyPath: m_Name
       value: 'Player '
       objectReference: {fileID: 0}
+    - target: {fileID: 6189371570236400105, guid: d8e469d2bdca2e14481d7abda13e1c47, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189371570236400105, guid: d8e469d2bdca2e14481d7abda13e1c47, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189371570236400105, guid: d8e469d2bdca2e14481d7abda13e1c47, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1631055109}
+    - target: {fileID: 6189371570236400105, guid: d8e469d2bdca2e14481d7abda13e1c47, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189371570236400105, guid: d8e469d2bdca2e14481d7abda13e1c47, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RotateTrees
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189371570236400105, guid: d8e469d2bdca2e14481d7abda13e1c47, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189371570236400105, guid: d8e469d2bdca2e14481d7abda13e1c47, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 6189371570236400108, guid: d8e469d2bdca2e14481d7abda13e1c47, type: 3}
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6189371570236400108, guid: d8e469d2bdca2e14481d7abda13e1c47, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 465.73044
+      value: 143.8
       objectReference: {fileID: 0}
     - target: {fileID: 6189371570236400108, guid: d8e469d2bdca2e14481d7abda13e1c47, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.95
+      value: 110.4
       objectReference: {fileID: 0}
     - target: {fileID: 6189371570236400108, guid: d8e469d2bdca2e14481d7abda13e1c47, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 790.2021
+      value: 361.9
       objectReference: {fileID: 0}
     - target: {fileID: 6189371570236400108, guid: d8e469d2bdca2e14481d7abda13e1c47, type: 3}
       propertyPath: m_LocalRotation.w
@@ -14984,7 +15023,7 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 0}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -15051,6 +15090,7 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 969679724}
   m_maskType: 0
+  _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
 --- !u!23 &969679724
@@ -17254,7 +17294,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Big Bird vs Big Tree vs Poachers
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 0}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -17321,6 +17361,7 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 1108661543}
   m_maskType: 0
+  _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
 --- !u!23 &1108661543
@@ -17996,7 +18037,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Elephants vs Giraffes
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 0}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -18063,6 +18104,7 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 1148300327}
   m_maskType: 0
+  _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
 --- !u!23 &1148300327
@@ -19459,7 +19501,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Ants vs Giraffes
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 0}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -19526,6 +19568,7 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 1225517413}
   m_maskType: 0
+  _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
 --- !u!23 &1225517413
@@ -21863,7 +21906,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Hyenas vs Vultures
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 0}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -21930,6 +21973,7 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 1430760007}
   m_maskType: 0
+  _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
 --- !u!23 &1430760007
@@ -25842,6 +25886,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1631055108}
   - component: {fileID: 1631055107}
+  - component: {fileID: 1631055109}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -25907,6 +25952,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1631055109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1631055106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 314d296676b62fc4d88aec04620b20b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tree1: {fileID: 562300253}
+  _tree2: {fileID: 461936916}
 --- !u!1001 &1632324808
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30689,7 +30748,7 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 0}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -30756,6 +30815,7 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 1911289924}
   m_maskType: 0
+  _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
 --- !u!23 &1911289924

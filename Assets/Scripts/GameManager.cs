@@ -5,27 +5,25 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    GameObject tree1;
-    GameObject tree2;
-    Collider startPoint;
+    [SerializeField] private GameObject _tree1;
+    [SerializeField] private GameObject _tree2;
 
-    void RotateTrees()
+    public void RotateTrees()
     {
-        StartCoroutine(RotateTree(tree1, 70));
-        StartCoroutine(RotateTree(tree2, 70));
-        startPoint.enabled = false;
+        StartCoroutine(RotateTree(_tree1, 3.5f));
+        StartCoroutine(RotateTree(_tree2, 3.5f));
     }
 
-    IEnumerator RotateTree(GameObject go, float angles)
+    private IEnumerator RotateTree(GameObject go, float size)
 	{
-        while (go.transform.rotation.z > angles)
+        while (go.transform.localScale.z > size )
 		{
-            go.transform.Rotate(0, 0, Time.deltaTime);
+            go.transform.localScale *= 1 - Time.deltaTime/25;
             yield return null;
 		}
-	}
+	} 
 
-    void EndGame()
+    public void EndGame()
 	{
         //TODO: Put in proper scene or transition to end the game
         SceneManager.LoadSceneAsync(2);
