@@ -16,13 +16,15 @@ public class AudioManager : MonoBehaviour
 		public AudioContents.StartType startType;
 		public AudioClip audioClip;
 		public float volume;
+		public GameObject camera;
 
 		//Fill all variables for the audio 
-		public AudioComponents(AudioContents.StartType st, AudioClip ac, float v)
+		public AudioComponents(AudioContents.StartType st, AudioClip ac, float v, GameObject cam)
 		{
 			startType = st;
 			audioClip = ac;
 			volume = v;
+			camera = cam;
 		}
 	}
 
@@ -54,7 +56,7 @@ public class AudioManager : MonoBehaviour
 			foreach(AudioContents ac in _audioContents)
 			{
 				if (!ac.gameObject.GetComponent<AudioSource>()) ac.gameObject.AddComponent<AudioSource>();
-				_audioDictionary.Add(ac.gameObject, new AudioComponents(ac.startType, ac.audioClip, ac.volume));
+				_audioDictionary.Add(ac.gameObject, new AudioComponents(ac.startType, ac.audioClip, ac.volume, ac.camera));
 			}
 		}
 		else Debug.LogError("There are no Audio Components on the " + this.name + 
@@ -69,6 +71,7 @@ public class AudioManager : MonoBehaviour
 		if (_audioDictionary.ContainsKey(go))
 		{
 			AudioComponents component = _audioDictionary[go];
+			GameManager.Instance.ChangeCam(component.camera);
 
 			//Check if the start type for the audio is correct
 			if (component.startType == startType)

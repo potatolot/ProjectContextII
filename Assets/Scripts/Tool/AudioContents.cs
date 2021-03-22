@@ -15,6 +15,7 @@ public struct AudioContents
 
 	public StartType startType;
 	public GameObject gameObject;
+	public GameObject camera;
 	public AudioClip audioClip;
 	[Range(0, 100)] public float volume;
 }

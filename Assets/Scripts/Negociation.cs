@@ -6,9 +6,12 @@ using UnityEngine.UI;
 
 public class Negociation : MonoBehaviour
 {
-	[SerializeField] private GameObject visual;
+	[SerializeField] private GameObject _visual;
+	[SerializeField] private GameObject _level1;
+	[SerializeField] private GameObject _mainCamera;
 	[SerializeField] private Text _question;
 	[SerializeField] private Text[] _answers;
+	[SerializeField] private Button[] _buttons;
 	private Color white = Color.white;
 	private Color gray = Color.gray;
 	private Vector2 _posChange;
@@ -32,6 +35,7 @@ public class Negociation : MonoBehaviour
 	{
 		public string answer;
 		public float result;
+		public AudioClip answerclip;
 	}
 
 	private void Start()
@@ -70,15 +74,20 @@ public class Negociation : MonoBehaviour
 			}
 			_currentStory = _storyDictionary[go];
 
-			visual.SetActive(true);
+			_visual.SetActive(true);
 			foreach(Text t in _answers)
 			{
 				t.gameObject.SetActive(false);
 			}
-			for(int i = 0; i < _currentStory.answers.Length; i++)
+			foreach (Button b in _buttons)
+			{
+				b.gameObject.SetActive(false);
+			}
+			for (int i = 0; i < _currentStory.answers.Length; i++)
 			{
 				_answers[i].gameObject.SetActive(true);
 				_answers[i].text = _currentStory.answers[i].answer;
+				_buttons[i].gameObject.SetActive(true);
 			}
 			_question.text = _currentStory.question;
 
@@ -92,18 +101,30 @@ public class Negociation : MonoBehaviour
 
 	public void answerClicked(int answer)
 	{
+		answer--;
 		CheckAnswer(answer);
+		GameManager.Instance.ChangeCam(_mainCamera);
 	}
 
 	private void CheckAnswer(int answer)
 	{
 		Score += _currentStory.answers[answer].result;
-		visual.SetActive(false);
+
+		AudioSource ac = _currentStory.go.GetComponent<AudioSource>();
+		ac.clip = _currentStory.answers[answer].answerclip;
+		ac.Play();
+
+		_visual.SetActive(false);
 		_canVote = false;
 		PlayerLogic.CanMove = true;
 
 		Cursor.lockState = CursorLockMode.Locked;
 		Cursor.visible = false;
 		Debug.Log(Score);
+
+		if(_currentStory.go == _level1)
+		{
+			GameManager.Instance.RotateTrees();
+		}
 	}
 }
