@@ -31,9 +31,6 @@ public class PlayerLogic : MonoBehaviour
 
 		CanMove = true;
 
-		Cursor.lockState = CursorLockMode.Locked;
-		Cursor.visible = false;
-
 		_xRot = 0;
 		_yRot = 0;
 	}

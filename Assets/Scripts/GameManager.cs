@@ -8,6 +8,11 @@ public class GameManager : MonoBehaviour
     private static GameManager _instance;
     public static GameManager Instance { get { return _instance; } }
 
+    [SerializeField] private GameObject _startMenu;
+    [SerializeField] private GameObject _endMenu;
+    [SerializeField] private Transform _playerPosition;
+    [SerializeField] private Transform _startPosition;
+    [SerializeField] private Transform _endPosition;
     [SerializeField] private GameObject _tree1;
     [SerializeField] private GameObject _tree2;
     [SerializeField] private GameObject _currentCam;
@@ -27,7 +32,47 @@ public class GameManager : MonoBehaviour
 
     private void Start()
 	{
+        PlayerLogic.CanMove = false;
         foreach (GameObject go in _colliders) go.SetActive(true);
+        _currentCam.transform.position = _startPosition.position;
+        _currentCam.transform.rotation = _startPosition.rotation;
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
+        _startMenu.SetActive(true);
+
+        //  Application.targetFrameRate = 15;
+    }
+
+    private IEnumerator MoveCam(Transform endTransform, Transform startTransform)
+	{
+        if (_startMenu.activeSelf) _startMenu.SetActive(false);
+        if (endTransform == _endPosition) PlayerLogic.CanMove = false;
+
+        float counter = 0;
+        while (counter <= 5)
+		{
+            Debug.Log(counter);
+            _currentCam.transform.position = Vector3.Lerp(startTransform.position, endTransform.position, 1f*Time.deltaTime);
+            _currentCam.transform.rotation = Quaternion.Lerp(startTransform.rotation, endTransform.rotation, 1f*Time.deltaTime);
+            counter += Time.deltaTime;
+            yield return null;
+        }
+        _currentCam.transform.position = endTransform.transform.position;
+        _currentCam.transform.rotation = endTransform.transform.rotation;
+
+
+        if (endTransform == _playerPosition)
+        {
+            PlayerLogic.CanMove = true;
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+        if (endTransform == _endPosition) 
+        { 
+            _endMenu.SetActive(true);
+            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.visible = true;
+        }
     }
 
     public void RotateTrees()
@@ -48,8 +93,22 @@ public class GameManager : MonoBehaviour
 
     public void EndGame()
 	{
-        //TODO: Put in proper scene or transition to end the game
-        SceneManager.LoadSceneAsync(2);
+        StartCoroutine(MoveCam(_endPosition, _currentCam.transform));
+    }
+
+    public void StartGame()
+	{
+        StartCoroutine(MoveCam(_playerPosition, _currentCam.transform));
+    }
+
+    public void ExitGame()
+	{
+        Application.Quit();
+	}
+
+    public void RestartGame()
+	{
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 	}
 
     public void ChangeCam(GameObject camera)
