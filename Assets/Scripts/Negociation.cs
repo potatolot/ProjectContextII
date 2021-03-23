@@ -126,5 +126,11 @@ public class Negociation : MonoBehaviour
 		{
 			GameManager.Instance.RotateTrees();
 		}
+		else if(_storyDictionary.Keys.Count <= 0)
+		{
+			GameManager.Instance.EndGame();
+		}
+
+
 	}
 }
