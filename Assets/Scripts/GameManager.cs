@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -17,6 +18,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject _tree2;
     [SerializeField] private GameObject _currentCam;
     [SerializeField] private GameObject[] _colliders;
+    [SerializeField] private Text _endText;
 
     private void Awake()
     {
@@ -84,7 +86,7 @@ public class GameManager : MonoBehaviour
 	{
         while (go.transform.localScale.z > size )
 		{
-            go.transform.localScale *= 1 - Time.deltaTime/15;
+            go.transform.localScale *= 1 - Time.deltaTime/5;
             yield return null;
 		}
         foreach (GameObject go2 in _colliders) go2.SetActive(false);
@@ -93,6 +95,7 @@ public class GameManager : MonoBehaviour
     public void EndGame()
 	{
         StartCoroutine(MoveCam(_endPosition, _currentCam.transform));
+        _endText.text = "You are done!\nThere are " + Negociation.Score + " clients happy";
     }
 
     public void StartGame()
