@@ -103,7 +103,7 @@ public class Negociation : MonoBehaviour
 	{
 		answer--;
 		CheckAnswer(answer);
-		GameManager.Instance.ChangeCam(_mainCamera);
+		
 	}
 
 	private void CheckAnswer(int answer)
@@ -129,8 +129,9 @@ public class Negociation : MonoBehaviour
 		else if(_storyDictionary.Keys.Count <= 0)
 		{
 			GameManager.Instance.EndGame();
+			return;
 		}
-
+		GameManager.Instance.ChangeCam(_mainCamera);
 
 	}
 }

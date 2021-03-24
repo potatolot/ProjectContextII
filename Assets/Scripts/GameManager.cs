@@ -51,7 +51,6 @@ public class GameManager : MonoBehaviour
         float counter = 0;
         while (counter <= 5)
 		{
-            Debug.Log(counter);
             _currentCam.transform.position = Vector3.Lerp(startTransform.position, endTransform.position, 1f*Time.deltaTime);
             _currentCam.transform.rotation = Quaternion.Lerp(startTransform.rotation, endTransform.rotation, 1f*Time.deltaTime);
             counter += Time.deltaTime;
