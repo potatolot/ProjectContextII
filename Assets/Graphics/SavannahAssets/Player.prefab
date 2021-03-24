@@ -1,5 +1,162 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &248024238
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 248024239}
+  m_Layer: 0
+  m_Name: StartCamPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &248024239
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 248024238}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.395, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6189371570236400108}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2147006709
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2147006710}
+  - component: {fileID: 2147006711}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2147006710
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2147006709}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6189371570236400108}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &2147006711
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2147006709}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: db0e2bdb98889c84686ea3a662476882, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &6189371570236400097
 GameObject:
   m_ObjectHideFlags: 0
@@ -33,9 +190,11 @@ Transform:
   m_GameObject: {fileID: 6189371570236400097}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.034, z: -7.72}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.4937, y: 1.4937, z: 1.4937}
   m_Children:
   - {fileID: 6189371571896817967}
+  - {fileID: 248024239}
+  - {fileID: 2147006710}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -54,7 +213,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6189371570236400097}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -144,7 +303,7 @@ CharacterController:
   serializedVersion: 2
   m_Height: 2
   m_Radius: 0.5000002
-  m_SlopeLimit: 45
+  m_SlopeLimit: 30
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
@@ -227,41 +386,100 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55991c99a25a3f44f94a09cad2c14e43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visual: {fileID: 0}
+  _visual: {fileID: 0}
+  _level1: {fileID: 0}
+  _mainCamera: {fileID: 6189371571896817954}
   _question: {fileID: 0}
   _answers:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  _buttons:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   _storyContent:
   - go: {fileID: 0}
-    question: object 2
+    question: Due to an extremely hot dry season, wildfires have scorched the African
+      savannah decimating the population of Acacia trees, the main source of giraffe
+      nutrition and hydration. The few trees that remain are now being eaten by the
+      giraffes bringing considerable damage to the tree species
     answers:
-    - answer: 1
+    - answer: Let the giraffe population relocates to a place where food is ample
+        but hydration is scarce.
       result: 1
-    - answer: 2
-      result: 2
-    - answer: 3
-      result: 3
-    - answer: 4
-      result: 4
+      answerclip: {fileID: 8300000, guid: 04435201b6538d044ae0c04de17d883b, type: 3}
+    - answer: 'Let giraffes stay, and graze more intensely on the acacias '
+      result: 1
+      answerclip: {fileID: 8300000, guid: 99516c01c1413f54d849b17c7b1113a0, type: 3}
   - go: {fileID: 0}
-    question: Object 1
+    question: "A group of elephants also wants  to drink water from a little pond
+      in the savanna. The amount of water isn\u2019t enough for both the elephants
+      and the giraffes"
     answers:
-    - answer: 1
+    - answer: Let the elephants relocate to another place closer to human settlement
       result: 1
-    - answer: 2
-      result: 2
+      answerclip: {fileID: 8300000, guid: 65733cd8ac89d844a8e08119bb8edbaa, type: 3}
+    - answer: Avoid taking sides and let nature do it's thing
+      result: 0
+      answerclip: {fileID: 8300000, guid: fed0fc90c43bfa24589bc8dbb24d0323, type: 3}
   - go: {fileID: 0}
-    question: object 3
+    question: Giraffes keep stepping on the ants. The ants are mad because they are
+      being killed by the giraffes
     answers:
-    - answer: 1
-      result: 1
-    - answer: 2
+    - answer: Assign a pathway for the ants to walk so they are visible
       result: 2
-    - answer: 3
-      result: 3
+      answerclip: {fileID: 8300000, guid: 45d181f85a3f09348964d1fcbc6335ac, type: 3}
+    - answer: The ants should watch out for the giraffes
+      result: 1
+      answerclip: {fileID: 8300000, guid: 65e5d138baf434e4784a73332af70878, type: 3}
+    - answer: Ignore the issue
+      result: 0
+      answerclip: {fileID: 8300000, guid: 2672ec24dfcb2e945b30b62267fcd2ca, type: 3}
+  - go: {fileID: 0}
+    question: "A big tree has the problem his family can\u2019t become big because
+      the birds can\u2019t disperse all the seeds/fruits away from the tree. There
+      are fewer big birds than normal because of poaching"
+    answers:
+    - answer: do nothing
+      result: 0
+      answerclip: {fileID: 8300000, guid: a56dc9f92db8b7d43868057db923f097, type: 3}
+    - answer: find the poachers and give them a fine
+      result: 1
+      answerclip: {fileID: 8300000, guid: a5c5f1ebc05c42747a0d3dd5c78f090b, type: 3}
+    - answer: ' introduce another big bird that can disperse the seeds/fruits '
+      result: 1
+      answerclip: {fileID: 8300000, guid: 12a8cc1848546a24bbed957be87e1bf3, type: 3}
+  - go: {fileID: 0}
+    question: The zebras keep eating grass and because of that the grass is too low
+      for the mice to hide in. mice are complaining because predators such as hawks
+      and eagles can see them more clearly
+    answers:
+    - answer: Let the zebras eat as much grass as they like
+      result: 1
+      answerclip: {fileID: 8300000, guid: 9d425a8b04920e04bb53b93d01de245a, type: 3}
+    - answer: Mice are right and the amount of grass a zebra eats should be regulated
+      result: 2
+      answerclip: {fileID: 8300000, guid: 4c905ee65533d45478b9778f01862125, type: 3}
+    - answer: The mice should move to another place
+      result: 1
+      answerclip: {fileID: 8300000, guid: 4779c32ce92906340a928f2d69099784, type: 3}
+  - go: {fileID: 0}
+    question: Lions eat a lot of antelope in one area. The antelope family comes
+      to you because they are mad that the lions are only eating their family members
+      instead of other species.
+    answers:
+    - answer: 'the lions are in their right and can keep eating the antelopes  '
+      result: 1
+      answerclip: {fileID: 8300000, guid: 1a1a3f28713d4814ebe6882daba45123, type: 3}
+    - answer: lions should also eat other species and not only the antelopes
+      result: 2
+      answerclip: {fileID: 8300000, guid: 0197e1c64bc778d489b58403cec1844c, type: 3}
+    - answer: 'lions should stop eating antelopes all together '
+      result: 1
+      answerclip: {fileID: 8300000, guid: cab1bf98cc5985c4cbe8103507a47034, type: 3}
 --- !u!1 &6189371571896817954
 GameObject:
   m_ObjectHideFlags: 0
@@ -320,7 +538,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 10000
-  field of view: 60
+  field of view: 60.4
   orthographic: 0
   orthographic size: 5
   m_Depth: -1

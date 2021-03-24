@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour
         foreach (GameObject go in _colliders) go.SetActive(true);
         _currentCam.transform.position = _startPosition.position;
         _currentCam.transform.rotation = _startPosition.rotation;
+        PlayerLogic.CanMove = false;
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = true;
         _startMenu.SetActive(true);

@@ -29,7 +29,6 @@ public class PlayerLogic : MonoBehaviour
 		_characterController = GetComponent<CharacterController>();
 		_camera = GameObject.FindGameObjectWithTag("MainCamera");
 
-		CanMove = true;
 
 		_xRot = 0;
 		_yRot = 0;
