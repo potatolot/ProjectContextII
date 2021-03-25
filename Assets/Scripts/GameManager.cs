@@ -42,8 +42,6 @@ public class GameManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = true;
         _startMenu.SetActive(true);
-
-        //  Application.targetFrameRate = 15;
     }
 
     private IEnumerator MoveCam(Transform endTransform, Transform startTransform)
@@ -111,6 +109,7 @@ public class GameManager : MonoBehaviour
 
     public void RestartGame()
 	{
+        Negociation.Score = 0;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 	}
 

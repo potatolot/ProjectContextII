@@ -5,13 +5,13 @@ using UnityEngine.InputSystem;
 
 public class PlayerLogic : MonoBehaviour
 {
+	static public bool CanMove;
+	[SerializeField] private float _speed = 100f;
 	private Vector2 _posChange;
 	private Vector2 _rotation;
-	[SerializeField] private float _speed = 100f;
 	private Vector2 _velocity;
 	private CharacterController _characterController;
 	private GameObject _camera;
-	static public bool CanMove;
 	private float _xRot, _yRot;
 	private Vector3 _tempVector, _targetRot;
 
@@ -54,7 +54,7 @@ public class PlayerLogic : MonoBehaviour
 			_targetRot = transform.eulerAngles;
 			_targetRot.y = _yRot;
 
-			transform.rotation = Quaternion.Euler(_targetRot);
+			transform.rotation = Quaternion.Euler(_targetRot*0.3f);
 		}
 	}
 

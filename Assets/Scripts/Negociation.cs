@@ -6,19 +6,17 @@ using UnityEngine.UI;
 
 public class Negociation : MonoBehaviour
 {
+	static public float Score;
+
 	[SerializeField] private GameObject _visual;
 	[SerializeField] private GameObject _level1;
 	[SerializeField] private GameObject _mainCamera;
 	[SerializeField] private Text _question;
 	[SerializeField] private Text[] _answers;
 	[SerializeField] private Button[] _buttons;
-	private Color white = Color.white;
-	private Color gray = Color.gray;
-	private Vector2 _posChange;
-	static private bool _canVote;
 	[SerializeField] private storyContents[] _storyContent;
+
     static Dictionary<GameObject, storyContents> _storyDictionary = new Dictionary<GameObject, storyContents>();
-	static public float Score { get; private set; }
 	private storyContents _currentStory;
 
 	[System.Serializable]
@@ -27,7 +25,6 @@ public class Negociation : MonoBehaviour
         public GameObject go;
 		public string question;
 		public answerResult[] answers;
-
 	}
 
 	[System.Serializable]
@@ -44,23 +41,6 @@ public class Negociation : MonoBehaviour
 		{
 			_storyDictionary.Add(sc.go, sc);
 		}
-		_canVote = false;
-	}
-
-	private void FixedUpdate()
-	{
-		if (_canVote)
-		{
-			if (!PlayerLogic.CanMove)
-			{
-				//TODO
-			}
-		}
-	}
-
-	public void Move(InputAction.CallbackContext context)
-	{
-		if (!PlayerLogic.CanMove) _posChange = context.ReadValue<Vector2>();
 	}
 
 	public IEnumerator StartNegociation(GameObject go, AudioSource ac)
@@ -91,7 +71,6 @@ public class Negociation : MonoBehaviour
 			}
 			_question.text = _currentStory.question;
 
-			_canVote = true;
 			Cursor.lockState = CursorLockMode.Confined;
 			Cursor.visible = true;
 
@@ -115,7 +94,6 @@ public class Negociation : MonoBehaviour
 		ac.Play();
 
 		_visual.SetActive(false);
-		_canVote = false;
 		PlayerLogic.CanMove = true;
 
 		Cursor.lockState = CursorLockMode.Locked;
@@ -132,6 +110,5 @@ public class Negociation : MonoBehaviour
 			return;
 		}
 		GameManager.Instance.ChangeCam(_mainCamera);
-
 	}
 }
